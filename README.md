@@ -8,17 +8,19 @@ hosted https://ngu3u.sse.codesandbox.io to display a list of Star Wars cahacters
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-### Live App Location
-https://ngu3u.sse.codesandbox.io/
+### Live React SPA App Location
+https://rzmkn.csb.app/
 #
 ### Tools Used
 - Styled Components
 - Apollo Client
+- React Hooks
 - Web Vitals
-- Jeact Dom
-- ReduxJS
+- React Dom
+- Suspense
 - GraphQL
 - Lodash
+- Redux
 - Jest
 #
 
