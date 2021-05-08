@@ -4,11 +4,11 @@ import { RootState } from '../store';
 export interface LoaderState {
   value: boolean,
   status: 'idle' | 'loading' | 'failed'
-}
+};
 
 const initialState: LoaderState = {
   value: false,
-  status: 'idle',
+  status: 'idle'
 };
 
 export const loaderSlice = createSlice({
@@ -26,5 +26,3 @@ export const { setIsLoading } = loaderSlice.actions;
 export const selectIsLoading = (state: RootState) => state.isLoading.value;
 
 export default loaderSlice.reducer;
-
-

@@ -1,5 +1,11 @@
 import { useHistory } from "react-router-dom";
-import { StyledCardContent, StyledRoundedBtn, StyledSpan, Container } from '../components/StyledComponents';
+import {
+  StyledCardContent,
+  StyledRoundedBtn,
+  StyledSpan,
+  Container
+} from '../components/StyledComponents';
+
 const styles = {
   container: {
     flexDirection: 'column',
@@ -24,6 +30,7 @@ const styles = {
 const NotFound: React.FC<{}> = () => {  
   const history = useHistory();
   const handleClick = () => history.push('/', { from: 'NotFound' });
+
   return (
     <Container style={styles.container}>
       <StyledSpan style={styles.title}>404</StyledSpan>

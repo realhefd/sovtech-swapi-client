@@ -8,7 +8,7 @@ export interface PeopleState {
 
 const initialState: PeopleState = {
   value: [],
-  status: 'idle',
+  status: 'idle'
 };
 
 export const peopleSlice = createSlice({
@@ -17,7 +17,6 @@ export const peopleSlice = createSlice({
   reducers: {
     setPeople: (state, action: PayloadAction<Array<string>>) => {
       state.value = action.payload;
-      //return { ...state.value, ...action.payload }
     }
   }
 });
@@ -27,5 +26,3 @@ export const { setPeople } = peopleSlice.actions;
 export const selectPeople = (state: RootState) => state.people.value;
 
 export default peopleSlice.reducer;
-
-

@@ -8,7 +8,6 @@ const DetailsPage = lazy(() => import('./pages/Details'));
 const HomePage = lazy(() => import('./pages/Home'));
 
 const App: React.FC = () => {
-
   return (
     <div style={{ textAlign: 'center' }}>
       <Router>

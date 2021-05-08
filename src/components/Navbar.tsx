@@ -1,8 +1,8 @@
+import { NavbarHeader, NavbarImage } from './StyledComponents'
 import starwarsLogo from '../assets/starwars.jpg';
 import sovtechLogo from '../assets/logo.png';
 import { Link } from "react-router-dom";
 import ThemeSwitch from './Switch';
-import { NavbarHeader, NavbarImage } from './StyledComponents'
 
 const Navbar: React.FC<{}> = () => {
   return(

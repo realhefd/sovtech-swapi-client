@@ -1,15 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import pageReducer from './reducers/pageSlice';
-import peopleReducer from './reducers/peopleSlice';
-import loaderReducer from './reducers/loaderSlice';
 import totalCountReducer from './reducers/totalCountSlice';
+import loaderReducer from './reducers/loaderSlice';
+import peopleReducer from './reducers/peopleSlice';
+import pageReducer from './reducers/pageSlice';
 
 export const store = configureStore({
   reducer: {
-    page: pageReducer,
-    people: peopleReducer,
+    totalCount: totalCountReducer,
     isLoading: loaderReducer,
-    totalCount: totalCountReducer
+    people: peopleReducer,
+    page: pageReducer
   },
 });
 

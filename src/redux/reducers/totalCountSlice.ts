@@ -8,7 +8,7 @@ export interface PeopleState {
 
 const initialState: PeopleState = {
   value: 0,
-  status: 'idle',
+  status: 'idle'
 };
 
 export const totalCountSlice = createSlice({
@@ -17,7 +17,6 @@ export const totalCountSlice = createSlice({
   reducers: {
     setTotalCount: (state, action: PayloadAction<number>) => {
       state.value = action.payload;
-      //return { ...state, people: action.payload }
     }
   }
 });
@@ -27,5 +26,3 @@ export const { setTotalCount } = totalCountSlice.actions;
 export const selectTotalCount= (state: RootState) => state.totalCount.value;
 
 export default totalCountSlice.reducer;
-
-

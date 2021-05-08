@@ -64,24 +64,23 @@ export const NavbarImage = styled.img`
   pointer-events: none;
   height: 50px;
 
+  @media (prefers-reduced-motion: no-preference) {
+    .logo {
+      animation: floating-animation infinite 3s ease-in-out;
+    }
+  }
 
-@media (prefers-reduced-motion: no-preference) {
-  .logo {
-    animation: floating-animation infinite 3s ease-in-out;
+  @keyframes floating-animation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
-}
-
-@keyframes floating-animation {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
 `;
 
 export const Avatar = styled.div`
@@ -158,8 +157,8 @@ export const PaginationBtn = styled.button`
   outline: none;
 
   :hover, :focus, :active {
-    border-color: #1e83ec;
     background-color: #1e83ecd9;
+    border-color: #1e83ec;
     color: #fff;
   }
 `;

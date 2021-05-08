@@ -1,11 +1,8 @@
+import { GET_PERSON_BY_NAME } from '../graphqlq/queries'
 import { useHistory } from "react-router-dom";
 import avatar from '../assets/helmet.jpg';
-
-
-import { GET_PERSON_BY_NAME } from '../graphqlq/queries'
 import Loader from '../components/Loader'
 import { useQuery } from '@apollo/client';
-
 import {
   StyledCardContent as StyledCardAction,
   StyledCardContent,
@@ -50,40 +47,46 @@ const styles = {
   }
 } as const;
 
-
 const Profile: any = (location: any) => {
-  const {pathname, state} = location as any
+  const {pathname, state} = location as any;
   const name = pathname.match(/details\/(.*)/)?.[1] as string;
+  const { loading, error, data } = useQuery(GET_PERSON_BY_NAME, {
+    variables: { name: name?.split('+').join(' ') }
+  }) as any;
 
-  const { loading, error, data } = useQuery(GET_PERSON_BY_NAME, { variables: { name: name?.split('+').join(' ') }});
-
-  if (state) return  <DataCard {...state.person}/>
-  if (loading) return <DataCard children={(<Loader/>)}/>
-  if (error) return <DataCard error={error.message}/>
-  if (!loading && !error) return <DataCard {...data.getPerson.results[0]}/>
+  if (state) return  <DataCard {...state.person}/>;
+  if (loading) return <DataCard children={(<Loader/>)}/>;
+  if (error) return <DataCard error={error.message}/>;
+  if (!loading && !error) return <DataCard {...data.getPerson.results[0]}/>;
 };
 
 const DataCard: React.FC<any> = (details: any) => {
-    const history = useHistory();
-  const {name, height, mass, gender, homeworld } = details
-  const handleClick = () => history.push('/mess', { from: 'Details' })
+  const history = useHistory();
+  const { name, height, mass, gender, homeworld } = details;
+  const handleClick = () => history.push('/make-a-mess', { from: 'Details' });
 
-  if (details.children) return details.children
+  if (details.children) return details.children;
 
   return (
     <Container>
       <StyledCard style={styles.card}>
         <StyledSpan style={styles.title}>{ name }</StyledSpan>
-        <Avatar style={styles.avatar}><img alt="Avatar" src={avatar} /></Avatar>
+        <Avatar style={styles.avatar}>
+          <img alt="Avatar" src={avatar} />
+        </Avatar>
+
         <StyledCardContent style={styles.cardContent}>
           <StyledSpan>{`Height: ${height}cm`}</StyledSpan>
           <StyledSpan>{`Mass: ${mass}Kg`}</StyledSpan>
           <StyledSpan style={{textTransform: 'capitalize'}}>{`Gender: ${gender}`}</StyledSpan>
           <StyledSpan>{`Homeworld: ${homeworld.name}`}</StyledSpan>
         </StyledCardContent>
+
         <StyledCardAction style={styles.cardActions}>
-          <StyledRoundedBtn onClick={() => history.goBack()}>Back</StyledRoundedBtn>
-          <StyledRoundedBtn style={styles.danger} onClick={() => handleClick()}>Mess Up</StyledRoundedBtn>
+          <StyledRoundedBtn onClick={() => history.goBack()}>
+            Back</StyledRoundedBtn>
+          <StyledRoundedBtn style={styles.danger} onClick={() => handleClick()}>
+            Mess Up</StyledRoundedBtn>
         </StyledCardAction>
       </StyledCard>
     </Container>

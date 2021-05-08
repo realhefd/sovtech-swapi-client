@@ -11,6 +11,7 @@ import {
 
 const People = ({ people }: any) => {
   const history = useHistory();
+
   const handleClick = (person: any) => {
     const url = person.name.trim().split(' ').join('+')
     history.push(`/details/${url}`, { from: 'Home', person: person })
@@ -21,11 +22,17 @@ const People = ({ people }: any) => {
       {
         people.map((person: any, index: string | number) => (
           <StyledCard key={ index }>
-            <Avatar><img alt="Avatar" src={avatar} /></Avatar>
+            <Avatar>
+              <img alt="Avatar" src={avatar} />
+            </Avatar>
+
             <StyledCardContent>
               <StyledSpan style={{ alignSelf: 'flex-start' }}>{ person.name }</StyledSpan>
               <span style={{ marginBottom: 4 }}>{ `${person.height} Centimetres Tall` }</span>
-              <StyledRoundedBtn onClick={() => handleClick(person)}>Details</StyledRoundedBtn>
+              <StyledRoundedBtn
+                onClick={() => handleClick(person)}>
+                Details
+              </StyledRoundedBtn>
             </StyledCardContent>
           </StyledCard>
         ))

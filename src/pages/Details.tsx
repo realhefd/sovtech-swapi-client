@@ -1,21 +1,9 @@
-import UserProfile from '../components/UserProfile'
-
-
-
+import UserProfile from '../components/UserProfile';
 import { useHistory } from "react-router-dom";
 
-
-
-
-
-
 const Details: React.FC<{}> = () => {
-  const history = useHistory();
-  
-  
-
-
-  return <UserProfile {...history.location} />;
+  const { location } = useHistory();
+  return <UserProfile {...location} />;
 }
 
 export default Details;
