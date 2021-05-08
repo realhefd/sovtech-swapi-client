@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
@@ -42,8 +41,7 @@ const StyledWrapper = styled.div`
 const Loader: React.FC<{}> = () => {
   return(
     <StyledWrapper>
-      <div></div>
-      <div></div>
+      <div></div><div></div>
     </StyledWrapper>
   );
 };
