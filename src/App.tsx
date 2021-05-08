@@ -12,7 +12,6 @@ const App: React.FC = () => {
     <div style={{ textAlign: 'center' }}>
       <Router>
         <Navbar />
-
         <Suspense fallback={<Loader/>}>
           <Switch>
             <Route exact path="/details/:name" component={DetailsPage} />
