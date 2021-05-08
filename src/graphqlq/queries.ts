@@ -12,10 +12,12 @@ query ($page: Int!) {
       mass
       gender
       homeworld {
+        name,
+        population
       }
     }
   }
-};
+}
 `
 export const GET_PERSON_BY_NAME: string | string[] | any = gql`
 query ($name: String!) {
@@ -29,6 +31,8 @@ query ($name: String!) {
       mass
       gender
       homeworld {
+        name,
+        population
       }
     }
   }
