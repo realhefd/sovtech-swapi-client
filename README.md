@@ -1,4 +1,4 @@
-# Sovtech Apollo GraphQL Server Test
+# Sovtech React Single Page App Test
 
 This project provides a React Single Page Application that consumes an Apollo GraphQL Server
 hosted https://ngu3u.sse.codesandbox.io to display a list of Star Wars cahacters
