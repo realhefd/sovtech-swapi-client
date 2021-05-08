@@ -7,6 +7,10 @@ import { NavbarHeader, NavbarImage } from './StyledComponents'
 const Navbar: React.FC<{}> = () => {
   return(
     <NavbarHeader>
+      <Link to="/">Home</Link>
+      <Link to="/details/:name">Details</Link>
+      <Link to="/notfound">NotFound</Link>
+
       <Link to="/">
         <NavbarImage src={sovtechLogo} alt="logo" />
       </Link>
