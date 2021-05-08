@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import { StyledCardContent, StyledRoundedBtn, StyledSpan, Container } from '../components/StyledComponents';
 const styles = {
   container: {
@@ -20,7 +21,9 @@ const styles = {
   }
 } as const;
 
-const NotFound: React.FC<{}> = () => {
+const NotFound: React.FC<{}> = () => {  
+  const history = useHistory();
+  const handleClick = () => history.push('/', { from: 'NotFound' });
   return (
     <Container style={styles.container}>
       <StyledSpan style={styles.title}>404</StyledSpan>
@@ -29,8 +32,8 @@ const NotFound: React.FC<{}> = () => {
       <p>Please use one of the links below</p>
 
       <StyledCardContent style={styles.cardActions}>
-        <StyledRoundedBtn>Back</StyledRoundedBtn>
-        <StyledRoundedBtn>Home</StyledRoundedBtn>
+        <StyledRoundedBtn onClick={() => history.goBack()}>Back</StyledRoundedBtn>
+        <StyledRoundedBtn onClick={() => handleClick()}>Home</StyledRoundedBtn>
       </StyledCardContent>
     </Container>
   );
