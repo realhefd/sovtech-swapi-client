@@ -1,6 +1,11 @@
 import { useHistory } from "react-router-dom";
 import avatar from '../assets/helmet.jpg';
 
+
+import { GET_PERSON_BY_NAME } from '../graphqlq/queries'
+import Loader from '../components/Loader'
+import { useQuery } from '@apollo/client';
+
 import {
   StyledCardContent as StyledCardAction,
   StyledCardContent,
@@ -45,10 +50,25 @@ const styles = {
   }
 } as const;
 
-const Profile: React.FC<any> = ({person}: any) => {
-  const history = useHistory();
-  const {name, height, mass, gender, homeworld } = person
+
+const Profile: any = (location: any) => {
+  const {pathname, state} = location as any
+  const name = pathname.match(/details\/(.*)/)?.[1] as string;
+
+  const { loading, error, data } = useQuery(GET_PERSON_BY_NAME, { variables: { name: name?.split('+').join(' ') }});
+
+  if (state) return  <DataCard {...state.person}/>
+  if (loading) return <DataCard children={(<Loader/>)}/>
+  if (error) return <DataCard error={error.message}/>
+  if (!loading && !error) return <DataCard {...data.getPerson.results[0]}/>
+};
+
+const DataCard: React.FC<any> = (details: any) => {
+    const history = useHistory();
+  const {name, height, mass, gender, homeworld } = details
   const handleClick = () => history.push('/mess', { from: 'Details' })
+
+  if (details.children) return details.children
 
   return (
     <Container>
