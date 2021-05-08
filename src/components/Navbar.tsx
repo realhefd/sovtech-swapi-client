@@ -2,17 +2,17 @@ import starwarsLogo from '../assets/starwars.jpg';
 import sovtechLogo from '../assets/logo.png';
 import { Link } from "react-router-dom";
 import ThemeSwitch from './Switch';
-import '../styles/navigation.module.css';
+import { NavbarHeader, NavbarImage } from './StyledComponents'
 
 const Navbar: React.FC<{}> = () => {
   return(
-    <header className="header">
+    <NavbarHeader>
       <Link to="/">
-        <img src={sovtechLogo} className="logo" alt="logo" />
+        <NavbarImage src={sovtechLogo} alt="logo" />
       </Link>
-      <img src={starwarsLogo} className="logo" alt="StarWars" />
+      <NavbarImage src={starwarsLogo} alt="StarWars" />
       <ThemeSwitch />
-    </header>
+    </NavbarHeader>
   );
 };
 
