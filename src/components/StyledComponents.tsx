@@ -8,6 +8,30 @@ export const Container = styled.div`
   display: flex;
 `;
 
+export const StyledCard = styled.div`
+  &:hover {
+    box-shadow: 0 5px 6px -3px #00000033, 0 9px 12px 1px #00000024, 0 3px 16px 2px #0000001f
+  }
+  box-shadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
+  justify-content: flex-start;
+  transition: box-shadow .5s;
+  overflow-wrap: break-word;
+  align-content: flex-start;
+  background-color: #fff;
+  word-break: break-word;
+  flex-direction: row;
+  border: 1px solid;
+  border-color: #fff;
+  border-radius: 4px;
+  font-size: 15px;
+  flex-wrap: wrap;
+  flex: 5 5 auto;
+  padding: 10px;
+  display: flex;
+  margin: 10px;
+  height: auto;
+`;
+
 export const StyledCardContent = styled.div`
   justify-content: flex-start;
   align-content: flex-start;
@@ -58,6 +82,29 @@ export const NavbarImage = styled.img`
     transform: translateY(0);
   }
 }
+`;
+
+export const Avatar = styled.div`
+  justify-content: center;
+  vertical-align: middle;
+  display: inline-flex;
+  line-height: normal;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  min-width: 87px;
+  height: 87px;
+  width: 87px;
+
+  img {
+    border-radius: inherit;
+    display: inline-flex;
+    border-style: none;
+    height: inherit;
+    width: inherit;
+  }
 `;
 
 export const StyledRoundedBtn = styled.button`
