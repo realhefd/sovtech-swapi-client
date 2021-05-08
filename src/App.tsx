@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import Navbar from './components/Navbar'
+import Loader from './components/Loader'
 
-function App() {
+const NotFoundPage = lazy(() => import('./pages/NotFound'));
+const DetailsPage = lazy(() => import('./pages/Details'));
+const HomePage = lazy(() => import('./pages/Home'));
+
+const App: React.FC = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ textAlign: 'center' }}>
+      <Router>
+        <Navbar />
+
+        <Suspense fallback={<Loader/>}>
+          <Switch>
+            <Route exact path="/details/:name" component={DetailsPage} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact component={NotFoundPage} />
+          </Switch>
+        </Suspense>
+      </Router>
     </div>
   );
 }
