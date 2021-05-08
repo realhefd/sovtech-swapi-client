@@ -138,3 +138,28 @@ export const StyledSpan = styled.span`
   line-height: 1.2;
   flex: auto 1 auto;
 `;
+
+export const PaginationBtnsWrapper = styled.div`
+  margin: 0 15px;
+`;
+
+export const PaginationBtn = styled.button`
+  border: 1px solid #1e83ec57;
+  background-color: #1e83ec1a;
+  padding: .3rem .75rem;
+  transition: all 0.5s;
+  border-radius: 30px;
+  line-height: 1.5;
+  appearance: none;
+  margin: 0px 5px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #1e83ec;
+  outline: none;
+
+  :hover, :focus, :active {
+    border-color: #1e83ec;
+    background-color: #1e83ecd9;
+    color: #fff;
+  }
+`;
